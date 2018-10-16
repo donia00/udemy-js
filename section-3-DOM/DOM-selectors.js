@@ -11,7 +11,7 @@
 
  const taskTitle = document.getElementById('task-title');
 // styling 
-console.log(document.getElementById('task-title').style.background = 'black');
+console.log(taskTitle.style.background = 'black');
 // dissapear 
 console.log(document.getElementById('task-title').style.display = 'none');
 
@@ -33,7 +33,7 @@ console.log(document.querySelector('.card-title')); // only the first one!!!
 console.log(document.querySelector('h5'));
 
 document.querySelector('li').style.color = 'red'; //first li
-document.querySelector('ul').style.color = 'blue' // did not overwrite the li above, li is child?
+document.querySelector('ul').style.color = 'blue' // did not overwrite the li above, li is child, works the other way around too
 
  // css pseudo classes
 document.querySelector('li:last-child').style.color = 'red';
@@ -53,9 +53,7 @@ items[0].style.color = 'yellow';
 
  // not global scope - local scope of the first ul selected with query selector
  // querySelector - first item
-const listItems = document.querySelector('ul').getElementsByClassName('collection-items');
 
-console.log(listItems);
 
  //tag name - all lis
 let lis = document.getElementsByTagName('li');
@@ -101,7 +99,7 @@ items.forEach(function (item, index) { // item and index are args for forEach
 
 });
 /////////////////////////////////////////
-
+// of all li's if more than one ul
 const liOdd = document.querySelectorAll('li:nth-child(odd)'); // css class
 const liEven = document.querySelectorAll('li:nth-child(even)');
 console.log(typeof liOdd);
@@ -116,3 +114,15 @@ for(let i = 0; i < liEven.length; i++){
 }
 
 
+const listItems = document.querySelector('ul').getElementsByClassName('collection-items');
+
+console.log(listItems);
+
+// excercise - if 2 ul's - modify second ul
+let items = document.getElementsByTagName('ul')
+console.log(items)
+uls = Array.from(items)
+
+items[1].style.color = 'red';
+// modify last li in second ul
+items[1].querySelector('li:last-child').textContent = 'FOO';
